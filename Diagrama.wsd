@@ -1,0 +1,20 @@
+@startuml QMP1
+class Prenda {
+  material
+  tipoDePrenda
+  color
+  colorSecundario
+}
+
+enum Material
+
+class TipoDePrenda {
+  categoria
+}
+
+enum Categoria
+
+Prenda --> Material
+Prenda --> TipoDePrenda
+TipoDePrenda --> Categoria
+@enduml
