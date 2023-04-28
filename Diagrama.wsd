@@ -6,6 +6,12 @@ class Prenda {
   colorSecundario
 }
 
+class Color {
+  rojo
+  verde
+  azul
+}
+
 enum Material
 
 class TipoDePrenda {
@@ -16,5 +22,6 @@ enum Categoria
 
 Prenda --> Material
 Prenda --> TipoDePrenda
+Prenda --> Color
 TipoDePrenda --> Categoria
 @enduml

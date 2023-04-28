@@ -4,10 +4,10 @@
 class Prenda {
   TipoDePrenda tipoDePrenda
   Material material
-  String color // HEX
-  String colorSecundario // HEX
+  Color color
+  Color colorSecundario
 
-  constructor(TipoDePrenda tipoDePrenda, Material material, String color, String colorSecundario = null)
+  constructor(TipoDePrenda tipoDePrenda, Material material, Color color, Color colorSecundario = null)
     if (tipoDePrenda == null || material == null || color == null)
       throw NullException()
     this.tipoDePrenda = tipoDePrenda
