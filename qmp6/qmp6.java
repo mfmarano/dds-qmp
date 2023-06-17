@@ -3,7 +3,7 @@ class Usuario {
   ProveedorMotor proveedorMotor;
 
   public void calcularSugerenciaDiaria() {
-    this.sugerenciaDiaria = this.getMotor().calcularSugerenciaDiaria(this);
+    this.sugerenciaDiaria = this.getMotor().getSugerencia(this);
   }
 
   private MotorSugerencias getMotor() {
@@ -39,7 +39,17 @@ interface MotorSugerencias {
 public class MotorClimatico implements MotorSugerencias {
   private ServicioMeteorologico servicioMeteorologico;
 
-  public Sugerencia calcularSugerenciaDiaria(Usuario usuario) {
-    // ...
+  public Sugerencia calcularSugerenciaDiaria() {
+    RepositorioUsuarios.getUsuarios().forEach(usuario ->
+     usuario.calcularSugerenciaDiaria())
   }
+}
+
+class RepositorioUsuarios{
+  List<Usuario> usuarios;
+
+  List<Usuario> getUsuarios() {
+    return usuarios;
+  }
+
 }

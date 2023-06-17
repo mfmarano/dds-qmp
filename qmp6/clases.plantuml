@@ -1,0 +1,59 @@
+@startuml QMP6
+
+class Usuario {
+  Sugerencia diaria
+  --
+  generarSugerenciaDiaria()
+  obtenerAlertas()
+}
+
+class RepositorioUsuarios {
+  List<Usuario> usuarios
+  --
+  actualizarSugerencias()
+}
+
+class Guardarropas {
+
+}
+
+interface ServicioMeteorologico {
+
+}
+
+class AccuWeatherAPI {
+
+}
+
+interface GeneradorDeSugerencias {
+  generarSugerencia()
+}
+
+class Sugerencia {
+
+}
+
+class Alerta {
+
+}
+
+class RepositorioAlertas {
+  actualizar()
+  buscarPorCiudad(ciudad)
+}
+
+RepositorioUsuarios --> "*" Usuario
+Usuario --> "*" Guardarropas
+Usuario -> GeneradorDeSugerencias
+Usuario -> "diaria" Sugerencia
+Usuario --> ServicioMeteorologico
+
+GeneradorDeSugerencias ..> Sugerencia
+
+RepositorioAlertas -> "*" Alerta
+RepositorioAlertas ..> RepositorioUsuarios
+
+ServicioMeteorologicoAccuWeather ..|> ServicioMeteorologico
+ServicioMeteorologicoAccuWeather -> AccuWeatherAPI
+
+@enduml
